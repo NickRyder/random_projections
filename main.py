@@ -1,7 +1,4 @@
 import numpy as np
-import scipy.sparse
-import dataAnalytics as da
-import dataSampler as ds
 import sys
 
 
@@ -28,11 +25,52 @@ if __name__ == '__main__':
     # Synthetic FMM
     # covariance_X = h.randomPSD(n)
     # covariance_W = h.randomPSD(n)
-    import helper as h
-    import OptimalRandomProjections as orp
 
-    import regressors
-    import ProjectionComputer as pc
+    import plotter
+    print("BIOLOGICAL---------------------------------------")
+    print("arcene_700_5000_100")
+    plotter.generate_fmm_tables("arcene_700_5000_100")
+    print("arcene_5000_700_100")
+    plotter.generate_fmm_tables("arcene_5000_700_100")
+    print("isolet_308_1559_100")
+    plotter.generate_fmm_tables("isolet_308_1559_100")
+    print("isolet_t_1559_308_100")
+    plotter.generate_fmm_tables("isolet_t_1559_308_100")
+    print("-")
+    print("-")
+    print("-")
+    print("-")
+    print("-")
+    print("SPARSE---------------------------------------")
+    print("go_sf_3853_2593_100")
+    plotter.generate_fmm_tables("go_sf_3853_2593_100")
+    print("go_sf_t_2593_3853_100")
+    plotter.generate_fmm_tables("go_sf_t_2593_3853_100")
+    print("tw_oc_5673_5000_100")
+    plotter.generate_fmm_tables("tw_oc_5673_5000_100")
+    print("tw_oc_t_5000_5673_100")
+    plotter.generate_fmm_tables("tw_oc_t_5000_5673_100")
+    print("-")
+    print("-")
+    print("-")
+    print("-")
+    print("-")
+    print("LINEAR REGRESSION-------------------------------")
+    print("slice_localization_384_53500_5_lamb_5")
+    plotter.generate_regression_lamb_tables("slice_localization_384_53500_5_lamb_5",increment=5)
+    print("e2006_full_150360_16087_20_lamb_50")
+    plotter.generate_regression_lamb_tables("e2006_full_150360_16087_20_lamb_50")
+
+    print("-")
+    print("-")
+    print("-")
+    print("-")
+    print("-")
+    print("LINEAR REGRESSION-------------------------------")
+    print("cifar_logistic_3072_1979_100_lamb_50")
+    plotter.generate_regression_lamb_tables("cifar_logistic_3072_1979_100_lamb_50")
+    print("rcv1_47236_20242_15_lamb_50")
+    plotter.generate_regression_lamb_tables("rcv1_47236_20242_15_lamb_50")
 
 
     # Grab slice locaization data
@@ -50,6 +88,11 @@ if __name__ == '__main__':
     # realizations_N = 100
 
     import numpy.random as npr
+
+
+
+
+
     # import time
     # N=10000
     # n=10000
@@ -206,12 +249,12 @@ if __name__ == '__main__':
     # # covariance_W = h.randomPSD(n)
     # data_X = ds.generateNSamples(covariance_X, samplesN)
     # data_W = ds.generateNSamples(covariance_W, samplesN)
-
-    mnist_data = ds.draw_MNIST(1000)
-    # for k_exp in range(7,10):
-    k = 128
-    da.generate_save_plot_interpolation_analytics(mnist_data, k, "mnist", realizations_N=20)
-    da.generate_naive_interp_plots(mnist_data,  "mnist", k,realizations_N=20)
+    #
+    # mnist_data = ds.draw_MNIST(1000)
+    # # for k_exp in range(7,10):
+    # k = 128
+    # da.generate_save_plot_interpolation_analytics(mnist_data, k, "mnist", realizations_N=20)
+    # da.generate_naive_interp_plots(mnist_data,  "mnist", k,realizations_N=20)
 
     # da.generate_naive_plots(mnist_data, "mnist", k, realizations_N=5)
 
